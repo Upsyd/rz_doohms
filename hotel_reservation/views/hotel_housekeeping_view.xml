@@ -153,7 +153,7 @@
 			<field name="model">issue.material.details</field>
 			<field name="type">form</field>
 			<field name="arch" type="xml">
-				<form string="Issue Material" version="7.0">
+				<form string="Issue Material">
 				<header>
 					<button colspan="1" string="Confirm" name="confirm_task"   type="object" states="draft"/>
 					<button colspan="1" string="Done" name="done_task"   type="object" states="confirm"/>
