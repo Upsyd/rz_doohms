@@ -6,6 +6,7 @@ import datetime
 import time
 
 class rr_housekeeping(models.Model): 
+# extend for housekeeping
     
     @api.onchange('requested_by_partner')
     def onchange_partner_id(self):
