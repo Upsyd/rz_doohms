@@ -1,0 +1,165 @@
+<openerp>
+   <data>
+   
+   		<record model="ir.ui.view" id="view_hotel_banquet_form">
+            <field name="name">banquet.quotation.form</field>
+            <field name="model">banquet.quotation</field>
+            <field name="arch" type="xml">
+   			<form string="Banquet Quotation">
+   			<header>
+						<button string="Confirm" name="action_confirm" states="draft" type="object" groups="banquet_managment.group_banquet_manager"/>
+						<button string="Send To Customer" name="action_sent" states="confirm" type="object"/>
+						<button string="Approved" name="action_approve" states="send_to" type="object"/>
+						<button string="Refuse" name="action_refuse" states="send_to" type="object"/>
+						<button string="Create Banquet Booking" name="action_create_tour" states="approve" type="object"/>
+						<field name="state" widget="statusbar" statusbar_visible="draft,confirm,send_to,done"/>
+			</header>
+   			<group  colspan="4" col="6">
+   					<field name="name" />
+					<field name="address" />
+    				<field name="adult" />
+    				<field name="agent_id" />
+    				<field name="board_toread" />
+    				<field name="checkin_date" />
+    				<field name="checkout_date" />
+    				<field name="child" />
+    				<field name="company_id" />
+    				<field name="contact_name" />
+    				<field name="current_date" />
+   	 				<field name="deposit_policy" />
+    				<field name="email_id" />
+    				<field name="invoiced" />
+    				<field name="lead" />
+    				<field name="min_dep_amount" />
+    				<field name="mobile" />
+   					<field name="number_of_days" />
+    				<field name="number_of_rooms" />
+    				<field name="percentage" />
+    				<field name="pricelist_id" />
+    				<field name="pur_tax_amt" />
+    				<field name="pur_total_amt" />
+    				<field name="pur_untax_amt" />
+    				<field name="sale_tax_amt" />
+    				<field name="sale_total_amt" />
+   	 				<field name="sale_untax_amt" />
+    				<field name="shop_id" />
+    				<field name="state" />
+    				<field name="via" />
+   			</group>
+   			</form>
+   		</field>
+   		</record>
+   		
+   		<record model="ir.ui.view" id="view_hotel_banquet_tree">
+            <field name="name">banquet.quotation.tree</field>
+            <field name="model">banquet.quotation</field>
+            <field name="arch" type="xml">
+   			<tree string="Banquet Quotation">
+   					<field name="name" />
+					<field name="address" />
+    				<field name="adult" />
+    				<field name="agent_id" />
+    				<field name="board_toread" />
+    				<field name="checkin_date" />
+    				<field name="checkout_date" />
+    				<field name="company_id" />
+    				<field name="contact_name" />
+   	 				<field name="deposit_policy" />
+    				<field name="email_id" />
+    				<field name="invoiced" />
+    				<field name="lead" />
+    				<field name="mobile" />
+    				<field name="state" />
+    				<field name="via" />
+    		</tree>
+   		</field>
+   		</record>
+   		
+   		<record model="ir.actions.act_window" id="open_banquet_quotation_form_tree">
+            <field name="name">Banquet Quotation</field>
+            <field name="res_model">banquet.quotation</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem  id="menu_banquet_root" name="Banquet Management" parent="hotel.hotel_management_menu"/>
+		<menuitem name="Banquet Quotation"
+                  id="menu_open_banquet_quotation_form_tree" 
+                  action="open_banquet_quotation_form_tree"
+                  parent="menu_banquet_root"/>  
+                  
+                  
+        <!-- SEATING PLAN -->
+        <record model="ir.ui.view" id="view_seating_plan_form">
+            <field name="name">seating.plan.form</field>
+            <field name="model">seating.plan</field>
+            <field name="arch" type="xml">
+   			<form string="Seating Plan">
+   				<field name="name"/>
+   				<field name="code"/>
+   			</form>
+   			</field>
+   		</record>
+   		
+   		<record model="ir.ui.view" id="view_seating_plan_tree">
+            <field name="name">seating.plan.tree</field>
+            <field name="model">seating.plan</field>
+            <field name="arch" type="xml">
+   			<tree string="Seating Plan">
+   				<field name="name"/>
+   				<field name="code"/>
+   			</tree>
+   			</field>
+   		</record>
+   		
+   		<record model="ir.actions.act_window" id="open_seating_plan_form_tree">
+            <field name="name">Seating Plan</field>
+            <field name="res_model">seating.plan</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+   		
+   		
+   		<menuitem  id="menu_banquet_config" name="Banquet Config" parent="hotel.hotel_configuration_menu"/>
+		<menuitem name="Seating Plan"
+                  id="menu_open_banquet_seating_plan_form_tree" 
+                  action="open_seating_plan_form_tree"
+                  parent="menu_banquet_config"/>  
+                  
+         <!-- THEME PLAN -->
+         <record model="ir.ui.view" id="view_theme_plan_form">
+            <field name="name">theme.plan.form</field>
+            <field name="model">theme.plan</field>
+            <field name="arch" type="xml">
+   			<form string="Theme Plan">
+   				<field name="name"/>
+   				<field name="code"/>
+   			</form>
+   			</field>
+   		</record>
+   		
+   		<record model="ir.ui.view" id="view_theme_plan_tree">
+            <field name="name">theme.plan.tree</field>
+            <field name="model">theme.plan</field>
+            <field name="arch" type="xml">
+   			<tree string="Theme Plan">
+   				<field name="name"/>
+   				<field name="code"/>
+   			</tree>
+   			</field>
+   		</record>
+   		
+   		<record model="ir.actions.act_window" id="open_theme_plan_form_tree">
+            <field name="name">Theme Plan</field>
+            <field name="res_model">theme.plan</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+   		
+		<menuitem name="Theme Plan"
+                  id="menu_open_banquet_theme_plan_form_tree" 
+                  action="open_theme_plan_form_tree"
+                  parent="menu_banquet_config"/> 
+   
+   </data>
+</openerp>
