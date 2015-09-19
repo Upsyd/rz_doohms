@@ -23,6 +23,7 @@
         "views/room_res.xml",
         "views/room_summ_view.xml",
         "views/email_temp_view.xml",
+        "views/hotel_housekeeping_view.xml",
     ],
     "description": """
     Module for Hotel/Resort/Property management. You can manage:
