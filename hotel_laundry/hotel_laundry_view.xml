@@ -1,0 +1,80 @@
+<openerp>
+	<data>
+	
+	
+	<record model="ir.ui.view" id="view_hotel_floor_form">
+            <field name="name">laundry.mangement.form</field>
+            <field name="model">laundry.mangement</field>
+            <field name="arch" type="xml">
+    <form string="Laundry Management" >
+		<header>
+			<button name="confirm" string="Confirm" states="draft" type="object" icon="gtk-apply"/>
+			<button name="cancel_service" string="Cancel" states="draft" type="object" icon="gtk-cancel"/>
+			<button name="send_to_laundry" string="Send to Laundry" states="confirmed" type="object"/>
+			<button name="512" string="Laundry Return" states="sent_to_laundry" type="action" icon="gtk-execute" context="{'laundry_flag': True}"/>
+			<button name="customer_return" string="Customer Return" type="object" attrs="{'invisible': ['|',('request_type','!=','from_room'),('state','!=','laundry_returned')]}"/>
+			<button name="done_internal" string="Done" type="object" attrs="{'invisible': ['|',('request_type','!=','internal'),('state','!=','laundry_returned')]}"/>
+			<button name="done_from_room" string="Done" states="customer_returned" type="object"/>
+			<field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done"/>
+		</header>
+		<sheet>
+		<group  colspan="4" col="4">
+			<field name="name"/>
+			<field name="company_id"/>
+			<field name="date_order"/>
+			<field name="deadline_date"/>
+		<!--  	<field name="invoice_ids"/>  -->
+			<field name="is_chargable"/>
+		<!--  	<field name="laundry_service_product_ids"/>  -->
+			<field name="partner_id"/>
+		<!-- 	<field name="pricelist_id"/>   -->
+			<field name="request_type"/>
+			<field name="room_number"/>
+			<field name="service_type"/>
+			<field name="shop_id"/>
+			<field name="state"/>
+			<field name="supplier_id"/>
+		<!--  	<field name="supplier_id_temp"/>  -->
+			<field name="user_id"/>
+		</group>
+		</sheet>
+	</form>
+	</field>
+	</record>
+	
+	<record model="ir.ui.view" id="view_hotel_floor_tree">
+            <field name="name">laundry.mangement.tree</field>
+            <field name="model">laundry.mangement</field>
+            <field name="arch" type="xml">
+    <tree string="Laundry Management" >
+			<field name="name"/>
+			<field name="date_order"/>
+			<field name="deadline_date"/>
+			<field name="is_chargable"/>
+			<field name="partner_id"/>
+			<field name="request_type"/>
+			<field name="room_number"/>
+			<field name="service_type"/>
+			<field name="shop_id"/>
+			<field name="state"/>
+			<field name="supplier_id"/>
+	</tree>
+	</field>
+	</record>
+	
+ 	<record model="ir.actions.act_window" id="open_loaundry_management_form_tree">
+            <field name="name">Laundry Management</field>
+            <field name="res_model">laundry.mangement</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+	
+	<menuitem  id="menu_laundry_root" name="Laundry Management" parent="hotel.hotel_management_menu"/>
+	<menuitem name="Laundry Management"
+                  id="menu_open_laundry_management_form_tree" 
+                  action="open_loaundry_management_form_tree"
+                  parent="menu_laundry_root"/>  
+	
+	
+	</data>
+</openerp>
